@@ -6,8 +6,12 @@
    
 És un error que permet als usuarios actuar fora dels permisos asignats, d'aquesta manera poden accedir a, modificar o esborrar informació o dades o executar una funció fora dels seus limits d'usuarí.  
 Es pot donar, per exemple, per no seguir el principi de minim privilegi, en modificar l'url per tal d'accedir per forcar la navegació a pagines no permesses, permitint l'acces o modificació de la conta d'una persona mitjancant nomes l'identificador unic, poder accedir a APIs que no inclouen controls d'acces pels metodes relacionats amb afegir, modificar o eliminar informació...  
-Els perills que implica són la fuga d'informació, la modificació o esborrat de dades, entre d'altres, ja que el perill depen sobretot de les interaccions que aconsegueixi dur a terme l'atacant.
-- TOP :
+Els perills que implica són la fuga d'informació, la modificació o esborrat de dades, entre d'altres, ja que el perill depen sobretot de les interaccions que aconsegueixi dur a terme l'atacant.  
+
+Metodos per evitar-ho: 
+Denegar per defecte els accesos als recursos, exceptuan els que hagin de ser publics, afegir un pas extra de verificació a part de l'identificador
+  
+- TOP 4: Diseny insegur
 
 - TOP :
 
