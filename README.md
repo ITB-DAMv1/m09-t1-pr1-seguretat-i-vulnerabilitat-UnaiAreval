@@ -1,7 +1,16 @@
 # Seguretat i vulnerabilitat
 
 ### 1. L’organització [OWASP Foundation](https://owasp.org/Top10/es/) va actualitzar en 2021 el seu Top 10 de vulnerabilitats més trobades en aplicacions web. 
-- Escull 3 vulnerabilitats d’aquesta llista i descriu-les. Escriu l’impacte que tenen a la seguretat i quins danys pot arribar a fer un atac en aquesta vulnerabilitat. Enumera diferents mesures i tècniques per poder evitar-les.
+#### Escull 3 vulnerabilitats d’aquesta llista i descriu-les. Escriu l’impacte que tenen a la seguretat i quins danys pot arribar a fer un atac en aquesta vulnerabilitat. Enumera diferents mesures i tècniques per poder evitar-les.
+- TOP 1: Perdida de Control d'acces
+   
+És un error que permet als usuarios actuar fora dels permisos asignats, d'aquesta manera poden accedir a, modificar o esborrar informació o dades o executar una funció fora dels seus limits d'usuarí.  
+Es pot donar, per exemple, per no seguir el principi de minim privilegi, en modificar l'url per tal d'accedir per forcar la navegació a pagines no permesses, permitint l'acces o modificació de la conta d'una persona mitjancant nomes l'identificador unic, poder accedir a APIs que no inclouen controls d'acces pels metodes relacionats amb afegir, modificar o eliminar informació...  
+Els perills que implica són la fuga d'informació, la modificació o esborrat de dades, entre d'altres, ja que el perill depen sobretot de les interaccions que aconsegueixi dur a terme l'atacant.
+- TOP :
+
+- TOP :
+
 
 ### 2. Obre el següent enllaç [(sql inseckten)](https://www.sql-insekten.de/) i realitza un mínim de 7 nivells fent servir tècniques d’injecció SQL. 
 1. Copia cada una de les sentències SQL resultant que has realitzat a cada nivell i comenta que has aconseguit.
@@ -23,3 +32,5 @@
 #### Per realitzar aquest exercici utilitza la llibreria System.Security.Cryptography.
 
 ### 6. Indica les referències que has consultat
+- OWASP Top 10 team (dia de mes de any). OWASP Top 10: 2021. OWASPTop 10:2021 Recuperat el 24/03/2025 d'[aquí](https://owasp.org/Top10/es/#bienvenido-al-owasp-top-10-2021)
+- Adriel Araujo (). Vulnerabilidades: Qué es Broken Access Control y cómo solucionarlo. Hackmetrix blog Recuperat el 24/03/2025 d'[aquí](https://blog.hackmetrix.com/broken-access-control/)
